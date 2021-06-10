@@ -1,0 +1,32 @@
+<main style="font-weight:bolder">
+<div class="row">
+    <form id="blog-form" class="col s12">
+        <h2 style="text-align: center;">Add/Maintain Post</h2>
+        {{#if loggedIn}}
+        <div style="margin-left: 40px; font-size:larger;">
+          <input id="blog_id" type="hidden" value="{{blog.id}}" class="validate">
+          Title:
+          </div>
+          <div style="margin-left: 40px; padding-left: 10px">
+            <input id="title" type="text" value="{{blog.title}}" size="80" style="background-color: aliceblue; border-radius:10px;font-size:larger;">
+          </div>
+        
+          <div style="margin-left: 40px;margin-top:10px; font-size:larger;" >Content:</div>
+          <div style="margin-left: 40px; padding-left: 10px" >
+            <textarea  style = "margin-left: 0px; backround-color: aliceblue; border-radius:10px;" placeholder="Content" id="content" cols="120" rows="5" class="validate">{{blog.content}}</textarea>
+          </div>
+      
+      <div style="margin-left: 40px;margin-top:10px;">
+          <button style= "margin-left: 30px " type="submit" id="blog_btn" class ="btn waves-effect waves-light">Submit</button>
+          {{#if blog.id}}
+          <button id="blog_delete" class ="btn waves-effect waves-light" style="float:right;">Delete</button>
+          {{/if}}
+      </div>
+      {{else}}
+        <a href="/login">You must login first to view this page.</a>
+        {{/if}}
+      
+    </form>
+  </div>
+  </main>
+  <script src="/js/blog.js"></script>

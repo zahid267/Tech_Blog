@@ -1,0 +1,40 @@
+<section class="card">
+  
+    <header>
+      <span style="width:80%;">{{blog.title}}</span>
+      <span class="blogdate">
+        {{ format_date blog.blog_date}}
+
+      </span>
+    </header>
+    <p>{{blog.content}}</p>
+</section>
+ {{#each blog.comments as |comment|}}
+  <!--{{> comment-list}}-->
+  <section class="comment">
+   <p>{{comment.description}}</p>
+  <span>{{comment.user_id}} {{ format_date comment.comment_date}}</span>
+ </section>
+{{/each}}
+  <form id="blog-form">
+        
+        {{#if loggedIn}}
+        
+          <input id="blog_id" type="hidden" value="{{blog.id}}" class="validate">
+          
+        
+          <div style="margin-left: 40px;margin-top:10px; font-size:larger;" >Comments:</div>
+          <div style="margin-left: 40px; padding-left: 10px" >
+            <textarea id="description" style="margin-left: 0px; backround-color: aliceblue; border-radius:10px;" placeholder="Comments" cols="120" rows="5" class="validate"></textarea>
+          </div>
+      
+      <div style="margin-left: 40px;margin-top:10px;">
+          <button style= "margin-left: 30px " type="submit" id="blog_btn" class ="btn waves-effect waves-light">Submit</button>
+          
+      </div>
+      {{else}}
+        <a href="/login">You must login first to add comments.</a>
+        {{/if}}
+      
+    </form>
+    <script src="/js/blog-comment.js"></script>
