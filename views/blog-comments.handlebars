@@ -1,11 +1,8 @@
 <section class="card">
   
     <header>
-      <span style="width:80%;">{{blog.title}}</span>
-      <span class="blogdate">
-        {{ format_date blog.blog_date}}
-
-      </span>
+      <span class="blogtitle">{{blog.title}}</span>
+      <span class="blogdate"> Posted by {{blog.user.username}} on {{ format_date blog.blog_date}}</span>
     </header>
     <p>{{blog.content}}</p>
 </section>
@@ -13,7 +10,7 @@
   <!--{{> comment-list}}-->
   <section class="comment">
    <p>{{comment.description}}</p>
-  <span>{{comment.user_id}} {{ format_date comment.comment_date}}</span>
+  <span>-{{comment.user.username}}, {{ format_date comment.comment_date}}</span>
  </section>
 {{/each}}
   <form id="blog-form">

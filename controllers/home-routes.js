@@ -5,12 +5,13 @@ const { Blog, Comment, User } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const dbBlogData = await Blog.findAll({
-      include: [
+      include: [ Comment, User]
+     /* include: [
         {
           model: Comment,
           attributes: ['description','comment_date','user_id'],
         },
-      ],
+      ],*/
     });
 
     const blogs = dbBlogData.map((blog) =>
@@ -39,18 +40,9 @@ router.get('/blog/add', (req, res) => {
 router.get('/blog/:id', async (req, res) => {
   try {
     const dbBlogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          attributes: [
-            'description',
-            'comment_date',
-            'user_id',
-          ],
-          
-        },
-      ],
-    });
+      include: [ Comment, User]
+    }
+    );
 
     const blog = dbBlogData.get({ plain: true });
     console.log(blog);

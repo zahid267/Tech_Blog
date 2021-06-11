@@ -5,12 +5,16 @@ const { Blog, Comment, User } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const dbBlogData = await Blog.findAll({
-      include: [
+      where: {
+        user_id: req.session.userId,
+      },
+      include: [ Comment, User]
+      /*include: [
         {
           model: Comment,
           attributes: ['description','comment_date','user_id'],
         },
-      ],
+      ],*/
     });
 
     const blogs = dbBlogData.map((blog) =>
@@ -18,7 +22,7 @@ router.get('/', async (req, res) => {
     );
     console.log(blogs);
     
-    res.render('homepage', {
+    res.render('dashboard', {
       blogs,
       loggedIn: req.session.loggedIn,
     });
@@ -39,7 +43,8 @@ router.get('/blog/add', (req, res) => {
 router.get('/blog/:id', async (req, res) => {
   try {
     const dbBlogData = await Blog.findByPk(req.params.id, {
-      include: [
+      include: [ Comment, User]
+      /*include: [
         {
           model: Comment,
           attributes: [
@@ -49,12 +54,12 @@ router.get('/blog/:id', async (req, res) => {
           ],
           
         },
-      ],
+      ],*/
     });
 
     const blog = dbBlogData.get({ plain: true });
     console.log(blog);
-    res.render('blog-comments', { blog, loggedIn: req.session.loggedIn });
+    res.render('blog', { blog, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -81,7 +86,7 @@ router.post('/', async (req, res) => {
 
 // update Blog
 router.put('/:id', async(req, res) => {
-  // update a product by its `id` value
+  // update a blog by its `id` value
   try {
     const blogData = await Blog.update(req.body, {
       where: {
@@ -116,15 +121,6 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-// Login route
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
 });
 
 module.exports = router;
