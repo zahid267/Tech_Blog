@@ -1,7 +1,13 @@
 <main style="font-weight:bolder">
 <div class="row">
     <form id="blog-form" class="col s12">
-        <h2 style="text-align: center;">Add/Maintain Post</h2>
+        <h2 style="text-align: center;">
+          {{#if blog.id}}
+          Maintain 
+          {{else}}
+          Add a New 
+          {{/if}}
+          Post</h2>
         {{#if loggedIn}}
         <div style="margin-left: 40px; font-size:larger;">
           <input id="blog_id" type="hidden" value="{{blog.id}}" class="validate">
@@ -17,13 +23,20 @@
           </div>
       
       <div style="margin-left: 40px;margin-top:10px;">
-          <button style= "margin-left: 30px " type="submit" id="blog_btn" class ="btn waves-effect waves-light">Submit</button>
+          <button style= "margin-left: 30px " type="submit" id="blog_btn" class ="btn waves-effect waves-light">
+          {{#if blog.id}}
+              Update Post
+          {{else}}
+              Submit Post
+          {{/if}}
+          
+            </button>
           {{#if blog.id}}
           <button id="blog_delete" class ="btn waves-effect waves-light" style="float:right;">Delete</button>
           {{/if}}
       </div>
       {{else}}
-        <a href="/login">You must login first to view this page.</a>
+        <h3><a href="/login">You must login first to view this page.</a></h3>
         {{/if}}
       
     </form>

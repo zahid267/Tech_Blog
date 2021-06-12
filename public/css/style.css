@@ -29,9 +29,8 @@ a:visited {
 }
 
 header {
-  padding: 20px;
-  /*text-align: left;*/
-  
+  padding: 10px;
+ /* text-align:center;*/
   background: var(--primary);
   color: var(--light);
 }
@@ -66,19 +65,11 @@ nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
 }
+
 .blogs{
   display: block;
   width: 100%;
   padding: 10px;
-}
-.gallery {
-  flex: 4;
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .btn-no-style {
@@ -97,19 +88,6 @@ img {
   height: auto;
 }
 
-.painting {
-  width: 50%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
-
-.painting-details {
-  text-align: center;
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
 /* CARDS */
 .card {
   display: block;
@@ -120,8 +98,11 @@ img {
   background-color: var(--light);
   color: var(--dark);
   align-content: center;
+  text-decoration: none;
 }
-
+.card a {
+  text-decoration: none;
+}
 .login-card {
   margin: 0 0 20px 0;
   flex: 0 0 50%;
@@ -146,6 +127,7 @@ img {
   justify-content:space-between;
 }
 .blogtitle{
+  text-align: left;
   text-transform: uppercase;
   width:80%;
 }
@@ -153,17 +135,6 @@ img {
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
-}
-
-.gallery-name {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 5px var(--secondary);
-  border: 10px groove var(--light);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 100px;
-  padding-left: 100px;
 }
 
 /* LAYOUT */
@@ -178,10 +149,15 @@ img {
   margin: 10px;
   width:95%;
   border: 3px solid var(--dark);
+  border-top: 10px solid var(--tertiary);
   border-radius: 10px;
   background-color: var(--light);
   color: var(--dark);
   align-content: center;
+  padding: 8px;
+}
+.content{
+  padding: 5px;
 }
 .blogdate{
   text-align: right;
