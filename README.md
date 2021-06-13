@@ -50,7 +50,7 @@ THEN he/she is automatically signed out of the site
 
 The following animation demonstrates the application functionality:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+* Animation cycles through signing into the app, clicking on buttons, and updating blog posts : https://drive.google.com/file/d/1YODhXTha5EMAtaHdNEcqJnx7a18o78rJ/view?usp=sharing
 
 
 
