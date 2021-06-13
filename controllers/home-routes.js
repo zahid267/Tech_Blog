@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     const blogs = dbBlogData.map((blog) =>
       blog.get({ plain: true })
     );
-    console.log(blogs);
+  //  console.log(blogs);
     
     res.render('homepage', {
       blogs,
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-// Add product route
+// Add blog route
 router.get('/blog/add', (req, res) => {
   //if (req.session.loggedIn) {
     // res.redirect('/');
@@ -40,12 +40,14 @@ router.get('/blog/add', (req, res) => {
 router.get('/blog/:id', async (req, res) => {
   try {
     const dbBlogData = await Blog.findByPk(req.params.id, {
-      include: [ Comment, User]
+      include: [ {model: Comment, include:[User]}, User]
+
     }
     );
 
     const blog = dbBlogData.get({ plain: true });
-    console.log(blog);
+  //  console.log(blog);
+  //  console.log(blog.comments[0].user)
     res.render('blog-comments', { blog, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);

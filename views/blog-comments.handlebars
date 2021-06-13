@@ -7,10 +7,7 @@
     <p class="content">{{blog.content}}</p>
 </section>
  {{#each blog.comments as |comment|}}
-  <!--{{> comment-list}}-->
-  <section class="comment">
-   <p>{{comment.description}}</p>
-  <span>-{{comment.user_id}}, {{ format_date comment.comment_date}}</span>
+  {{> comment-list}}
  </section>
 {{/each}}
   <form id="blog-form">
@@ -22,7 +19,7 @@
         
           <div style="margin-left: 40px;margin-top:10px; font-size:larger;" >Comments:</div>
           <div style="margin-left: 40px; padding-left: 10px" >
-            <textarea id="description" style="margin-left: 0px; backround-color: aliceblue; border-radius:10px;" placeholder="Comments" cols="120" rows="5" class="validate"></textarea>
+            <textarea id="description" style="margin-left: 0px; backround-color: aliceblue; border-radius:10px; max-width: 95%;" placeholder="Comments" cols="120" rows="5" class="validate"></textarea>
           </div>
       
       <div style="margin-left: 40px;margin-top:10px;">
@@ -30,7 +27,7 @@
           
       </div>
       {{else}}
-        <a href="/login">You must login first to add comments.</a>
+        <a href="/login"><h4 style="padding-left: 20px;">You must login first to add comments.</h4></a>
         {{/if}}
       
     </form>

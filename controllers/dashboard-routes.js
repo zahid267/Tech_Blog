@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
     const blogs = dbBlogData.map((blog) =>
       blog.get({ plain: true })
     );
-    console.log(blogs);
+  //  console.log(blogs);
     
     res.render('dashboard', {
       blogs,
@@ -62,7 +62,7 @@ router.get('/blog/:id', async (req, res) => {
     });
 
     const blog = dbBlogData.get({ plain: true });
-    console.log(blog);
+ //   console.log(blog);
     res.render('blog', { blog, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);

@@ -1,4 +1,10 @@
 <section class="comment">
-   <p>{{comment.description}}</p>
-  <span>{{comment.user_id}}, {{ format_date comment.comment_date}}</span>
+   <p>{{description}}</p>
+  <span>{{user.username}}, {{ format_date comment_date}}</span>
  </section>
+
+ <!--<section class="comment">
+   <p>{{comment.description}}</p>   
+  <span>{{comment.user.username}}, {{ format_date comment.comment_date}}</span>
+  -->
+  <!-- do't use the reference to the main object in side "partials" handlebars-->

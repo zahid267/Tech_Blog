@@ -119,7 +119,6 @@ img {
 .card header {
   color: var(--light);
   font-weight: bold;
-  
   margin: 0;
   background-color: var(--tertiary);
   padding: 0.625rem;
