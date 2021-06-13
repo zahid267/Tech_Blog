@@ -56,7 +56,7 @@ The following animation demonstrates the application functionality:
 
 ## Review
 
-You are required to submit BOTH of the following for review:
+Here are the required URLs for review:
 
 * The URL of the functional, deployed application : https://mysterious-plains-69110.herokuapp.com/
 
